@@ -10,7 +10,7 @@ import com.devsuperior.dscommerce.entities.Product;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	
 	/*Busca de produtos paginadas, case-insentive*/
-	@Query("SELECT obj FROM Product ob " +
+	@Query("SELECT obj FROM Product obj " +
 			"WHERE UPPER(obj.name) LIKE UPPER(CONCAT('%', :name, '%'))")
 	Page<Product> searchByName(String name, Pageable pageable);
 }
